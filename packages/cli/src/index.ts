@@ -1,3 +1,5 @@
+#! /usr/bin/env node
+
 import inquirer from 'inquirer';
 import { kebabCase } from 'lodash';
 import { exec } from 'child_process';
