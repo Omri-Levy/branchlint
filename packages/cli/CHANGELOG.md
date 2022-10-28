@@ -1,5 +1,12 @@
 # @branchlint/cli
 
+## 0.0.5
+
+### Patch Changes
+
+- b1be18d: removed redundant .yarn directory
+- 2f686a1: updated readmes and removed yarn files
+
 ## 0.0.4
 
 ### Patch Changes
