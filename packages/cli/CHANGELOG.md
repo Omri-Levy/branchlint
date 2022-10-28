@@ -1,5 +1,11 @@
 # @branchlint/cli
 
+## 0.0.3
+
+### Patch Changes
+
+- b145133: added #! /usr/bin/env node to index.ts for the bin field in package.json
+
 ## 0.0.2
 
 ### Patch Changes
