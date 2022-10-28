@@ -20,4 +20,4 @@ runs:
 
     - name: Format
       shell: bash
-      run: turbo format
+      run: pnpm format

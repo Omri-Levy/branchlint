@@ -20,4 +20,4 @@ runs:
 
     - name: Build
       shell: bash
-      run: turbo build
+      run: pnpm build
