@@ -55,9 +55,9 @@ void (async () => {
 		const branchName = Object.values(answers as Record<PropertyKey, string>)
 			?.map(kebabCase)
 			?.join(`/`);
-		const command = (checkout as boolean)
-			? `git checkout -b ${branchName}`
-			: `git branch ${branchName}`;
+		const command = `${
+			(checkout as boolean) ? `git checkout -b` : `git branch`
+		} ${branchName} && git push -u origin ${branchName}`;
 
 		exec(command);
 		console.log(`🎉 Created a branch named ${branchName}`);

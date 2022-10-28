@@ -4,6 +4,7 @@ importers:
 
   .:
     specifiers:
+      '@branchlint/cli': ^0.0.1
       '@changesets/changelog-git': ^0.1.12
       '@changesets/cli': ^2.22.0
       '@commitlint/cli': ^17.0.3
@@ -25,6 +26,8 @@ importers:
       rimraf: ^3.0.2
       turbo: ^1.6.2
       typescript: ^4.7.4
+    dependencies:
+      '@branchlint/cli': 0.0.1
     devDependencies:
       '@changesets/changelog-git': 0.1.12
       '@changesets/cli': 2.24.3
@@ -92,6 +95,14 @@ packages:
     dependencies:
       regenerator-runtime: 0.13.9
     dev: true
+
+  /@branchlint/cli/0.0.1:
+    resolution: {integrity: sha512-zpZOt9LNsL0BEfRzv1LsQDk3f5R6Atr7gaPXVjLWRpcMB+BLxXPOpSRo/P5blK5dZ/TKCPHuQ2GKp4C4VPwluA==}
+    dependencies:
+      inquirer: 8.0.1
+      lodash: 4.17.21
+      zod: 3.19.1
+    dev: false
 
   /@changesets/apply-release-plan/6.0.4:
     resolution: {integrity: sha512-PutV/ymf8cZMqvaLe/Lh5cP3kBQ9FZl6oGQ3qRDxWD1ML+/uH3jrCE7S7Zw7IVSXkD0lnMD+1dAX7fsOJ6ZvgA==}
@@ -2236,7 +2247,7 @@ packages:
       mute-stream: 0.0.8
       ora: 5.4.1
       run-async: 2.4.1
-      rxjs: 7.5.6
+      rxjs: 7.5.7
       string-width: 4.2.3
       strip-ansi: 6.0.1
       through: 2.3.8

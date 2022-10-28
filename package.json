@@ -4,6 +4,7 @@
   "name": "branchlint",
   "version": "0.0.0",
   "scripts": {
+	"testing": "pnpm @branchlint/cli",
 	"test": "turbo test",
 	"format": "turbo format",
 	"lint": "turbo lint",
@@ -46,5 +47,8 @@
 	"rimraf": "^3.0.2",
 	"turbo": "^1.6.2",
 	"typescript": "^4.7.4"
+  },
+  "dependencies": {
+	"@branchlint/cli": "^0.0.1"
   }
 }
