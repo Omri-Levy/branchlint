@@ -9,22 +9,22 @@ transformed to kebab-case. The ability to create and consume different configura
 
 john-doe/feat/add-branchlint
 
-### Installation
+### Usage
 
 #### pnpm
 
 ```bash
-pnpm install @branchlint/cli -D
+pnpm dlx @branchlint/cli
 ```
 
 #### yarn
 
 ```bash
-yarn add @branchlint/cli -D
+yarn dlx @branchlint/cli
 ```
 
 #### npm
 
 ```bash
-npm install @branchlint/cli --save-dev
+npx @branchlint/cli
 ```
