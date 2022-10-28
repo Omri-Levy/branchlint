@@ -1,0 +1,16 @@
+
+> @branchlint/cli@0.0.0 build /home/o/projects/branchlint/packages/cli
+> pnpm clean && pnpm build:cjs && pnpm build:esm
+
+
+> @branchlint/cli@0.0.0 clean /home/o/projects/branchlint/packages/cli
+> rimraf dist
+
+
+> @branchlint/cli@0.0.0 build:cjs /home/o/projects/branchlint/packages/cli
+> tsc --project tsconfig.cjs.json
+
+
+> @branchlint/cli@0.0.0 build:esm /home/o/projects/branchlint/packages/cli
+> tsc --project tsconfig.json
+

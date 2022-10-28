@@ -20,4 +20,4 @@ runs:
 
     - name: Lint
       shell: bash
-      run: pnpm lint
+      run: turbo lint

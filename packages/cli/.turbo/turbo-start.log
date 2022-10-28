@@ -1,0 +1,6 @@
+
+> @branchlint/cli@0.0.0 start /home/o/projects/branchlint/packages/cli
+> node dist/cjs/index.js
+
+22
+👋 What is your name? [22D[22C

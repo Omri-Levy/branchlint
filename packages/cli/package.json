@@ -1,0 +1,57 @@
+{
+	"license": "ISC",
+	"private": false,
+	"sideEffects": false,
+	"publishConfig": {
+		"access": "public"
+	},
+	"author": "Omri Levy",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Omri-Levy/branchlint"
+	},
+	"types": "./dist/cjs/index.d.ts",
+	"description": "Enforce version control branch naming conventions using a CLI",
+	"keywords": [
+		"cli",
+		"inquirer",
+		"git",
+		"version control",
+		"branch",
+		"branch naming conventions",
+		"lint",
+		"commitlint",
+		"conventional commits",
+		"oss",
+		"open-source",
+		"enforce",
+		"code guidelines"
+	],
+	"name": "@branchlint/cli",
+	"version": "0.0.0",
+	"main": "dist/cjs/index.js",
+	"module": "dist/esm/index.js",
+	"scripts": {
+		"test": "echo \"will add tests soon\"",
+		"format": "prettier --write './src/**/*.{js,ts}'",
+		"lint": "eslint './src/**/*.{js,ts}' --fix",
+		"prestart": "pnpm build",
+		"start": "node dist/cjs/index.js",
+		"dev": "NODE_ENV=development nodemon dist/cjs/index.js",
+		"clean": "rimraf dist",
+		"build:cjs": "tsc --project tsconfig.cjs.json",
+		"build:esm": "tsc --project tsconfig.json",
+		"build": "pnpm clean && pnpm build:cjs && pnpm build:esm",
+		"watch": "tsc -w",
+		"typecheck": "tsc --noEmit"
+	},
+	"dependencies": {
+		"inquirer": "8.0.1",
+		"lodash": "^4.17.21",
+		"zod": "^3.19.1"
+	},
+	"devDependencies": {
+		"@types/inquirer": "^9.0.2",
+		"@types/lodash": "^4.14.186"
+	}
+}
