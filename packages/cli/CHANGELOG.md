@@ -1,5 +1,11 @@
 # @branchlint/cli
 
+## 0.0.6
+
+### Patch Changes
+
+- 9acafe7: removed the packageManager field which was wrongly set to yarn from package.json
+
 ## 0.0.5
 
 ### Patch Changes
