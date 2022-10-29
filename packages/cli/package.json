@@ -43,10 +43,11 @@
 		"build:cjs": "tsc --project tsconfig.cjs.json",
 		"build:esm": "tsc --project tsconfig.json",
 		"build": "pnpm clean && pnpm build:cjs && pnpm build:esm",
-		"watch": "tsc -w",
+		"watch": "tsc --project tsconfig.cjs.json -w",
 		"typecheck": "tsc --noEmit"
 	},
 	"dependencies": {
+		"@branchlint/default-config": "workspace:*",
 		"inquirer": "8.0.1",
 		"lodash": "^4.17.21",
 		"zod": "^3.19.1"

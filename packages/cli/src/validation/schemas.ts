@@ -1,20 +1,28 @@
-import z, { ZodEffects, ZodString } from 'zod';
-import lodash from 'lodash';
+import { z } from 'zod';
 
-export const kebabCasePreprocess = (
-	min: number,
-	max: number,
-	field: string,
-): ZodEffects<ZodString, ZodString[`_output`], unknown> =>
-	z.preprocess((val) => {
-		if (typeof val !== `string`) {
-			return val;
-		}
+export const withNameSchema = z
+	.object({
+		name: z.string(),
+	})
+	.passthrough();
 
-		return lodash.kebabCase(val);
-	}, z.string().min(min, `${field} must include at least ${min} character(s)`).max(max, `Name must include at most ${max} character(s)`));
+export const stringFunctionSchema = z.function().returns(z.string());
 
-export const nameSchema = kebabCasePreprocess(1, 70, `Name`);
+export const optionalStringFunctionSchema = stringFunctionSchema.optional();
 
-export const subjectSchema = kebabCasePreprocess(1, 24, `Branch subject`);
-console.log(`twenty-four-characters`.length);
+export const cliSchema = z.object({
+	separator: z.string(),
+	command: stringFunctionSchema,
+	prefix: withNameSchema,
+	middle: withNameSchema,
+	suffix: withNameSchema,
+	postCommand: withNameSchema,
+	successMessage: optionalStringFunctionSchema,
+	errorMessage: optionalStringFunctionSchema,
+});
+
+export const commandSchema = z.object({
+	command: z.string({
+		invalid_type_error: `Expected the return type of the command function to be a string.`,
+	}),
+});

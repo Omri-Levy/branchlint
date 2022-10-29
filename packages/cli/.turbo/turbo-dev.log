@@ -1,0 +1,12 @@
+
+> @branchlint/cli@0.0.2 dev /home/o/projects/branchlint/packages/cli
+> NODE_ENV=development nodemon dist/cjs/index.js
+
+[33m[nodemon] 2.0.19[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching path(s): *.*[39m
+[33m[nodemon] watching extensions: js,mjs,json[39m
+[32m[nodemon] starting `node dist/cjs/index.js`[39m
+22
+wow: /home/o/projects/branchlint/packages/cli/src/.branchlintrc.cjs
+👋 What is your name? [22D[22C[31m[nodemon] app crashed - waiting for file changes before starting...[39m
