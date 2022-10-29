@@ -1,2 +1,3 @@
-export { nameSchema, subjectSchema } from './schemas';
-export { nameValidate, validate, subjectValidate } from './methods';
+export { zSafeParse } from './z-safe-parse/z-safe-parse';
+export { commandSchema } from './schemas';
+export { cliSchema } from './schemas';

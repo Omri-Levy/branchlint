@@ -50,17 +50,30 @@ importers:
 
   packages/cli:
     specifiers:
+      '@branchlint/default-config': workspace:*
       '@types/inquirer': ^9.0.2
       '@types/lodash': ^4.14.186
       inquirer: 8.0.1
       lodash: ^4.17.21
       zod: ^3.19.1
     dependencies:
+      '@branchlint/default-config': link:../default-config
       inquirer: 8.0.1
       lodash: 4.17.21
       zod: 3.19.1
     devDependencies:
       '@types/inquirer': 9.0.2
+      '@types/lodash': 4.14.186
+
+  packages/default-config:
+    specifiers:
+      '@types/lodash': ^4.14.186
+      lodash: ^4.17.21
+      zod: ^3.19.1
+    dependencies:
+      lodash: 4.17.21
+      zod: 3.19.1
+    devDependencies:
       '@types/lodash': 4.14.186
 
 packages:

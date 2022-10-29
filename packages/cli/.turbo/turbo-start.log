@@ -1,6 +1,46 @@
 
-> @branchlint/cli@0.0.0 start /home/o/projects/branchlint/packages/cli
+> @branchlint/cli@0.0.2 start /home/o/projects/branchlint/packages/cli
 > node dist/cjs/index.js
 
-22
+🔍 Validating config... {
+  separator: '/',
+  prefix: {
+    type: 'input',
+    name: 'name',
+    message: 'What is your name?',
+    prefix: '👋',
+    validate: [Function: nameValidate]
+  },
+  middle: {
+    type: 'list',
+    name: 'typeOfChange',
+    message: "Select the type of change that you're committing:",
+    prefix: '🚧',
+    choices: [
+      'feat',     'fix',
+      'docs',     'style',
+      'refactor', 'perf',
+      'test',     'build',
+      'ci',       'chore',
+      'revert'
+    ]
+  },
+  suffix: {
+    type: 'input',
+    name: 'branchSubject',
+    message: "What is the branch's main subject? (i.e feature's name)",
+    prefix: '🏷️',
+    validate: [Function: subjectValidate]
+  },
+  postCommand: {
+    type: 'confirm',
+    name: 'checkout',
+    message: 'Checkout to new branch?',
+    default: true,
+    prefix: '🍻'
+  },
+  command: [Function: command],
+  successMessage: [Function: successMessage],
+  errorMessage: [Function: errorMessage]
+}
 👋 What is your name? [22D[22C

@@ -3,77 +3,69 @@
 import inquirer from 'inquirer';
 import { kebabCase } from 'lodash';
 import { exec } from 'child_process';
-import { isTtyError } from './utils';
-import { nameValidate, subjectValidate } from './validation';
+import { isTtyError, zSafeParse } from './utils';
+import { resolve } from 'path';
+import { isInstanceOfFunction } from './utils/is-instance-of-function';
+import { cliSchema, commandSchema } from './validation';
 
 void (async () => {
+	const { default: config } = await import(
+		resolve(process.cwd(), `.branchlintrc.cjs`)
+		// On error, use the default config.
+	).catch(async () => await import(`@branchlint/default-config`));
+
 	try {
-		const name = {
-			type: `input`,
-			name: `name`,
-			message: `What is your name?`,
-			prefix: `👋`,
-			validate: nameValidate,
-		};
-		const typeOfChange = {
-			type: `list`,
-			name: `typeOfChange`,
-			message: `Select the type of change that you're committing:`,
-			prefix: `🚧`,
-			choices: [
-				`feat`,
-				`fix`,
-				`docs`,
-				`style`,
-				`refactor`,
-				`perf`,
-				`test`,
-				`build`,
-				`ci`,
-				`chore`,
-				`revert`,
-			],
-		};
-		const branchSubject = {
-			type: `input`,
-			name: `branchSubject`,
-			message: `What is the branch's main subject? (i.e feature's name)`,
-			prefix: `🏷️`,
-			validate: subjectValidate,
-		};
-		const shouldCheckout = {
-			type: `confirm`,
-			name: `checkout`,
-			message: `Checkout to new branch?`,
-			default: true,
-			prefix: `🍻`,
-		};
+		const { success: isValidConfig } = zSafeParse(cliSchema, config);
+
+		if (!isValidConfig) {
+			return;
+		}
+
+		// Build the CLI steps from the config
 		const { checkout, ...answers } = await inquirer.prompt([
-			name,
-			typeOfChange,
-			branchSubject,
-			shouldCheckout,
+			config.prefix,
+			config.middle,
+			config.suffix,
+			config.postCommand,
 		]);
+		// Convert input from the CLI to kebab-case and separate prefix, middle, and suffix by the passed separator.
 		const branchName = Object.values(answers as Record<PropertyKey, string>)
 			?.map(kebabCase)
-			?.join(`/`);
-		const command = (checkout as boolean)
-			? `git checkout -b ${branchName} && git push -u origin ${branchName}`
-			: `git branch ${branchName}`;
+			?.join(config.separator);
+		const command = config.command(branchName, answers);
 
+		// Make sure exec receives a string to avoid errors.
+		const { success: isValidCommand } = zSafeParse(commandSchema, {
+			command: config.command(),
+		});
+
+		if (!isValidCommand) {
+			return;
+		}
+
+		// i.e execute git checkout -b john-doe/feat/add-branchlint
 		exec(command);
-		console.log(`🎉 Created a branch named ${branchName}`);
+
+		if (!isInstanceOfFunction(config.successMessage)) return;
+
+		console.log(config.successMessage(branchName, answers));
 	} catch (error) {
-		if (!isTtyError(error)) {
-			console.error(`💥 Failed to create a branch...`);
-
-			process.exit(1);
-		}
-
-		if (error.isTtyError) {
+		// CLI/Inquirer specific error.
+		if (isTtyError(error)) {
 			console.error(
-				`Prompt couldn't be rendered in the current environment`,
+				`💥 Prompt couldn't be rendered in the current environment`,
 			);
+
+			return;
 		}
+
+		// Log the error if config.errorMessage is not a function, otherwise pass the error as an argument.
+		console.error(
+			isInstanceOfFunction(config.errorMessage)
+				? config.errorMessage(error)
+				: error,
+		);
+
+		process.exit(1);
 	}
 })();
