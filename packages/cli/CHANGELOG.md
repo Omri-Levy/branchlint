@@ -1,5 +1,16 @@
 # @branchlint/cli
 
+## 1.0.0
+
+### Major Changes
+
+- 2caf80b: Added the ability to configure the CLI using an rc file, added a package for the default config.
+
+### Patch Changes
+
+- Updated dependencies [2caf80b]
+  - @branchlint/default-config@0.0.1
+
 ## 0.0.6
 
 ### Patch Changes

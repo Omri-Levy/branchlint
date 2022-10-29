@@ -28,7 +28,7 @@
 		"code guidelines"
 	],
 	"name": "@branchlint/cli",
-	"version": "0.0.6",
+	"version": "1.0.0",
 	"main": "dist/cjs/index.js",
 	"module": "dist/esm/index.js",
 	"bin": "dist/cjs/index.js",
