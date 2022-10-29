@@ -5,6 +5,9 @@
 	  "@branchlint/cli": [
 		"./packages/cli"
 	  ],
+	  "@branchlint/default-config": [
+		"./packages/default-config"
+	  ]
 	}
   }
 }
