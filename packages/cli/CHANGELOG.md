@@ -1,5 +1,11 @@
 # @branchlint/cli
 
+## 1.1.0
+
+### Minor Changes
+
+- 9270794: Now passing the checkout property with the answers object to the callbacks such as command.
+
 ## 1.0.0
 
 ### Major Changes
