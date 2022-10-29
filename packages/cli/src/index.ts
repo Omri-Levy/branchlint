@@ -22,14 +22,18 @@ void (async () => {
 		}
 
 		// Build the CLI steps from the config
-		const { checkout, ...answers } = await inquirer.prompt([
+		const answers = await inquirer.prompt([
 			config.prefix,
 			config.middle,
 			config.suffix,
 			config.postCommand,
 		]);
 		// Convert input from the CLI to kebab-case and separate prefix, middle, and suffix by the passed separator.
-		const branchName = Object.values(answers as Record<PropertyKey, string>)
+		// Don't transform checkout.
+		const { checkout, ...toTransform } = answers;
+		const branchName = Object.values(
+			toTransform as Record<PropertyKey, string>,
+		)
 			?.map(kebabCase)
 			?.join(config.separator);
 		const command = config.command(branchName, answers);
