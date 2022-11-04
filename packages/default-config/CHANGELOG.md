@@ -1,5 +1,11 @@
 # @branchlint/default-config
 
+## 1.0.1
+
+### Patch Changes
+
+- cac6172: Fixed the checkout condition not using the checkout argument when passed.
+
 ## 1.0.0
 
 ### Major Changes
