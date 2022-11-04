@@ -53,8 +53,8 @@
   },
   "dependencies": {
 	"@branchlint/default-config": "workspace:*",
-	"inquirer": "8.0.1",
-	"zod": "^3.19.1"
+	"@branchlint/common": "workspace:*",
+	"inquirer": "8.0.1"
   },
   "devDependencies": {
 	"@types/inquirer": "^9.0.2"

@@ -54,7 +54,8 @@
   "dependencies": {
 	"lodash": "^4.17.21",
 	"yargs": "^17.6.2",
-	"zod": "^3.19.1"
+	"zod": "^3.19.1",
+	"@branchlint/common": "workspace:*"
   },
   "devDependencies": {
 	"@types/lodash": "^4.14.186",

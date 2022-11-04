@@ -50,12 +50,23 @@ importers:
 
   packages/cli:
     specifiers:
+      '@branchlint/common': workspace:*
       '@branchlint/default-config': workspace:*
+      '@types/inquirer': ^9.0.2
+      inquirer: 8.0.1
+    dependencies:
+      '@branchlint/common': link:../common
+      '@branchlint/default-config': link:../default-config
+      inquirer: 8.0.1
+    devDependencies:
+      '@types/inquirer': 9.0.2
+
+  packages/common:
+    specifiers:
       '@types/inquirer': ^9.0.2
       inquirer: 8.0.1
       zod: ^3.19.1
     dependencies:
-      '@branchlint/default-config': link:../default-config
       inquirer: 8.0.1
       zod: 3.19.1
     devDependencies:
@@ -63,6 +74,7 @@ importers:
 
   packages/default-config:
     specifiers:
+      '@branchlint/common': workspace:*
       '@types/lodash': ^4.14.186
       '@types/node': ^18.11.9
       '@types/yargs': ^17.0.13
@@ -70,6 +82,7 @@ importers:
       yargs: ^17.6.2
       zod: ^3.19.1
     dependencies:
+      '@branchlint/common': link:../common
       lodash: 4.17.21
       yargs: 17.6.2
       zod: 3.19.1
@@ -600,10 +613,6 @@ packages:
     resolution: {integrity: sha512-J8xLz7q2OFulZ2cyGTLE1TbbZcjpno7FaN6zdJNrgAdrJ+DZzh/uFR6YrTb4C+nXakvud8Q4+rbhoIWlYQbUFQ==}
     dev: true
 
-  /@types/node/18.11.7:
-    resolution: {integrity: sha512-LhFTglglr63mNXUSRYD8A+ZAIu5sFqNJ4Y2fPuY7UlrySJH87rRRlhtVmMHplmfk5WkoJGmDjE9oiTfyX94CpQ==}
-    dev: true
-
   /@types/node/18.11.9:
     resolution: {integrity: sha512-CRpX21/kGdzjOpFsZSkcrXMGIBWMGNIHXXBVFSH+ggkftxg+XYP20TESbh+zFvFj3EQOl5byk0HTRn1IL6hbqg==}
     dev: true
@@ -627,7 +636,7 @@ packages:
   /@types/through/0.0.30:
     resolution: {integrity: sha512-FvnCJljyxhPM3gkRgWmxmDZyAQSiBQQWLI0A0VFL0K7W1oRUrPJSqNO0NvTnLkBcotdlp3lKvaT0JrnyRDkzOg==}
     dependencies:
-      '@types/node': 18.11.7
+      '@types/node': 18.11.9
     dev: true
 
   /@types/yargs-parser/21.0.0:

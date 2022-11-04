@@ -2,13 +2,12 @@
 
 import inquirer from 'inquirer';
 import {exec} from 'child_process';
-import {isTtyError, zSafeParse} from './utils';
+import {isTtyError} from './utils';
 import {resolve} from 'path';
 import {isInstanceOfFunction} from './utils/is-instance-of-function';
-import {cliSchema, commandSchema} from './validation';
+import {cliSchema, commandSchema, zSafeParse} from "@branchlint/common";
 
-export {branchlintConfig} from './utils/branchlint-config/branchlint-config';
-export {TBranchlintConfig} from './types';
+export {branchlintConfig} from "@branchlint/common";
 
 void (async () => {
 	const branchlintrc = await import(

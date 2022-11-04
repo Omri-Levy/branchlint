@@ -45,6 +45,9 @@
 	  ],
 	  "@branchlint/default-config": [
 		"../default-config"
+	  ],
+	  "@branchlint/common": [
+		"../common"
 	  ]
 	},
 	/* Specify a set of entries that re-map imports to additional lookup locations. */

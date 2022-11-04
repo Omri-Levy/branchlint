@@ -2,7 +2,7 @@ import {nameValidate, subjectValidate} from './validation';
 import yargs from 'yargs';
 import {hideBin} from 'yargs/helpers';
 import {kebabCase} from 'lodash';
-import {branchlintConfig} from '@branchlint/cli';
+import {branchlintConfig} from '@branchlint/common';
 
 const separator = `/`;
 const {prefix, setUpstream, checkout} = yargs(hideBin(process.argv))
