@@ -1,62 +1,62 @@
 {
-  "license": "ISC",
-  "private": false,
-  "sideEffects": false,
-  "publishConfig": {
-	"access": "public"
-  },
-  "author": "Omri Levy",
-  "repository": {
-	"type": "git",
-	"url": "https://github.com/Omri-Levy/branchlint"
-  },
-  "types": "./dist/cjs/index.d.ts",
-  "description": "Enforce version control branch naming conventions using a CLI",
-  "files": [
-	"dist"
-  ],
-  "keywords": [
-	"cli",
-	"inquirer",
-	"git",
-	"version control",
-	"branch",
-	"branch naming conventions",
-	"lint",
-	"commitlint",
-	"conventional commits",
-	"oss",
-	"open-source",
-	"enforce",
-	"code guidelines"
-  ],
-  "name": "@branchlint/cli",
-  "version": "1.0.0",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "bin": {
-	"branchlint": "dist/cjs/index.js"
-  },
-  "scripts": {
-	"test": "echo \"will add tests soon\"",
-	"format": "prettier --write './**/*.{cjs,js,ts}'",
-	"lint": "eslint './**/*.{cjs,js,ts}' --fix",
-	"prestart": "pnpm build",
-	"start": "node dist/cjs/index.js",
-	"dev": "NODE_ENV=development nodemon dist/cjs/index.js",
-	"clean": "rimraf dist",
-	"build:cjs": "tsc --project tsconfig.cjs.json",
-	"build:esm": "tsc --project tsconfig.json",
-	"build": "pnpm clean && pnpm build:cjs && pnpm build:esm",
-	"watch": "tsc --project tsconfig.cjs.json -w",
-	"typecheck": "tsc --noEmit"
-  },
-  "dependencies": {
-	"@branchlint/default-config": "workspace:*",
-	"@branchlint/common": "workspace:*",
-	"inquirer": "8.0.1"
-  },
-  "devDependencies": {
-	"@types/inquirer": "^9.0.2"
-  }
+	"license": "ISC",
+	"private": false,
+	"sideEffects": false,
+	"publishConfig": {
+		"access": "public"
+	},
+	"author": "Omri Levy",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Omri-Levy/branchlint"
+	},
+	"types": "./dist/cjs/index.d.ts",
+	"description": "Enforce version control branch naming conventions using a CLI",
+	"files": [
+		"dist"
+	],
+	"keywords": [
+		"cli",
+		"inquirer",
+		"git",
+		"version control",
+		"branch",
+		"branch naming conventions",
+		"lint",
+		"commitlint",
+		"conventional commits",
+		"oss",
+		"open-source",
+		"enforce",
+		"code guidelines"
+	],
+	"name": "@branchlint/cli",
+	"version": "2.0.0",
+	"main": "dist/cjs/index.js",
+	"module": "dist/esm/index.js",
+	"bin": {
+		"branchlint": "dist/cjs/index.js"
+	},
+	"scripts": {
+		"test": "echo \"will add tests soon\"",
+		"format": "prettier --write './**/*.{cjs,js,ts}'",
+		"lint": "eslint './**/*.{cjs,js,ts}' --fix",
+		"prestart": "pnpm build",
+		"start": "node dist/cjs/index.js",
+		"dev": "NODE_ENV=development nodemon dist/cjs/index.js",
+		"clean": "rimraf dist",
+		"build:cjs": "tsc --project tsconfig.cjs.json",
+		"build:esm": "tsc --project tsconfig.json",
+		"build": "pnpm clean && pnpm build:cjs && pnpm build:esm",
+		"watch": "tsc --project tsconfig.cjs.json -w",
+		"typecheck": "tsc --noEmit"
+	},
+	"dependencies": {
+		"@branchlint/default-config": "workspace:*",
+		"@branchlint/common": "workspace:*",
+		"inquirer": "8.0.1"
+	},
+	"devDependencies": {
+		"@types/inquirer": "^9.0.2"
+	}
 }
