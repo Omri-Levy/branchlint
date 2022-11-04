@@ -6,12 +6,13 @@ module.exports = {
 	parserOptions: {
 		ecmaVersion: `latest`,
 		sourceType: `module`,
-		project: `./tsconfig.json`,
 	},
 	rules: {
 		quotes: [`error`, `backtick`],
 		'array-callback-return': `off`,
 		'prefer-template': `error`,
 		'@typescript-eslint/restrict-template-expressions': `off`,
+		'@typescript-eslint/strict-boolean-expressions': `off`,
+		'@typescript-eslint/prefer-nullish-coalescing': `off`,
 	},
 };

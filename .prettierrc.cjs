@@ -1,1 +1,3 @@
-module.exports = require('./packages/config/prettierrc.base.cjs')
+module.exports = {
+	...require('./packages/config/prettierrc.base.cjs'),
+}
