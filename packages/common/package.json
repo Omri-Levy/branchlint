@@ -3,38 +3,38 @@
   "private": false,
   "sideEffects": false,
   "publishConfig": {
-	"access": "public"
+    "access": "public"
   },
   "author": "Omri Levy",
   "repository": {
-	"type": "git",
-	"url": "https://github.com/Omri-Levy/branchlint"
+    "type": "git",
+    "url": "https://github.com/Omri-Levy/branchlint"
   },
   "description": "Enforce version control branch naming conventions using a CLI",
   "types": "./dist/cjs/index.d.ts",
   "name": "@branchlint/common",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "scripts": {
-	"test": "echo \"will add tests soon\"",
-	"format": "prettier --write './**/*.{cjs,js,ts}'",
-	"lint": "eslint './**/*.{cjs,js,ts}' --fix",
-	"prestart": "pnpm build",
-	"start": "node dist/cjs/index.js",
-	"dev": "NODE_ENV=development nodemon dist/cjs/index.js",
-	"clean": "rimraf dist",
-	"build:cjs": "tsc --project tsconfig.cjs.json",
-	"build:esm": "tsc --project tsconfig.json",
-	"build": "pnpm clean && pnpm build:cjs && pnpm build:esm",
-	"watch": "tsc --project tsconfig.cjs.json -w",
-	"typecheck": "tsc --noEmit"
+    "test": "echo \"will add tests soon\"",
+    "format": "prettier --write './**/*.{cjs,js,ts}'",
+    "lint": "eslint './**/*.{cjs,js,ts}' --fix",
+    "prestart": "pnpm build",
+    "start": "node dist/cjs/index.js",
+    "dev": "NODE_ENV=development nodemon dist/cjs/index.js",
+    "clean": "rimraf dist",
+    "build:cjs": "tsc --project tsconfig.cjs.json",
+    "build:esm": "tsc --project tsconfig.json",
+    "build": "pnpm clean && pnpm build:cjs && pnpm build:esm",
+    "watch": "tsc --project tsconfig.cjs.json -w",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-	"inquirer": "8.0.1",
-	"zod": "^3.19.1"
+    "inquirer": "8.0.1",
+    "zod": "^3.19.1"
   },
   "devDependencies": {
-	"@types/inquirer": "^9.0.2"
+    "@types/inquirer": "^9.0.2"
   }
 }
