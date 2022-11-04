@@ -1,5 +1,38 @@
 # @branchlint/cli
 
+## 1.0.2
+
+### Patch Changes
+
+- fbd0ca1: Fixed transformer not receiving an object as an argument now receives {answers} instead of answers directly
+
+## 1.0.1
+
+### Patch Changes
+
+- b4bbeb1: Changed bin to cli.js to avoid execute on import of types or utils
+
+## 2.0.0
+
+### Major Changes
+
+- 4849f11: Improved type safety, moved the branch name transformer to the config and added yargs to control checkout, set upstream, and default prefix.
+
+### Patch Changes
+
+- 4849f11: Fixed error due to not passing the answers object into the command method on the validation step
+- Updated dependencies [4849f11]
+- Updated dependencies [4849f11]
+- Updated dependencies [f582347]
+  - @branchlint/default-config@1.0.0
+  - @branchlint/common@0.0.1
+
+## 1.1.0
+
+### Minor Changes
+
+- 9270794: Now passing the checkout property with the answers object to the callbacks such as command.
+
 ## 1.0.0
 
 ### Major Changes
