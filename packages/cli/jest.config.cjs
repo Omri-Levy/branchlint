@@ -1,4 +1,4 @@
 module.exports = {
-	...require('../config/jest.cli.cjs'),
+	...require('../config/jest.base.cjs'),
 	rootDir: '.',
 }

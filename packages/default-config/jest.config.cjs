@@ -1,4 +1,4 @@
 module.exports = {
-	...require('../config/jest.default-config.cjs'),
+	...require('../config/jest.base.cjs'),
 	rootDir: '.',
 }

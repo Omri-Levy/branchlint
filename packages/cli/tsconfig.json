@@ -1,11 +1,13 @@
 {
-  "extends": "../tsconfig/tsconfig.cli.json",
+  "extends": "../tsconfig/tsconfig.base.json",
   "compilerOptions": {
 	/* Specify what module code is generated. */
 	"rootDir": "src",
 	"baseUrl": ".",
 	/* Specify a file that bundles all outputs into one JavaScript file. If 'declaration' is true, also designates a file that bundles all .d.ts output. */
-	"outDir": "dist/esm"
+	"outDir": "dist/esm",
+	"module": "ESNext",
+	"target": "ESNext"
   },
   "include": [
 	"./src/**/*.ts"

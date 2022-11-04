@@ -1,4 +1,4 @@
-import { z } from 'zod';
+import {z} from 'zod';
 
 export const withNameSchema = z
 	.object({
@@ -6,19 +6,40 @@ export const withNameSchema = z
 	})
 	.passthrough();
 
-export const stringFunctionSchema = z.function().returns(z.string());
-
-export const optionalStringFunctionSchema = stringFunctionSchema.optional();
-
 export const cliSchema = z.object({
 	separator: z.string(),
-	command: stringFunctionSchema,
+	command: z
+		.function()
+		.args(z.object({
+			branchName: z.string(),
+			answers: z.record(z.string(), z.any()),
+		}))
+		.returns(z.string()),
+	transformer: z
+		.function()
+		.args(z.object({
+			answers: z.record(z.string(), z.any()),
+		}))
+		.returns(z.string()),
 	prefix: withNameSchema,
 	middle: withNameSchema,
 	suffix: withNameSchema,
 	postCommand: withNameSchema,
-	successMessage: optionalStringFunctionSchema,
-	errorMessage: optionalStringFunctionSchema,
+	successMessage: z
+		.function()
+		.args(z.object({
+			branchName: z.string(),
+			answers: z.record(z.string(), z.any()),
+		}))
+		.returns(z.string())
+		.optional(),
+	errorMessage: z
+		.function()
+		.args(z.object({
+			error: z.unknown(),
+		}))
+		.returns(z.string())
+		.optional(),
 });
 
 export const commandSchema = z.object({

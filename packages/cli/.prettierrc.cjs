@@ -1,1 +1,3 @@
-module.exports = require(`../config/prettierrc.cli.cjs`);
+module.exports = {
+	...require(`../config/prettierrc.base`),
+}

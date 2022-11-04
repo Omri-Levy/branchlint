@@ -1,13 +1,38 @@
-import { nameValidate, subjectValidate } from './validation';
+import {nameValidate, subjectValidate} from './validation';
+import yargs from 'yargs';
+import {hideBin} from 'yargs/helpers';
+import {kebabCase} from 'lodash';
+import {branchlintConfig} from '@branchlint/cli';
 
-export default {
-	separator: `/`,
+const separator = `/`;
+const {prefix, setUpstream, checkout} = yargs(hideBin(process.argv))
+	.scriptName(`branchlint`)
+	.option(`prefix`, {
+		describe: `Provides a default prefix for cases where prefix does not change between uses.`,
+		type: `string`,
+	})
+	.option(`set-upstream`, {
+		describe: `Runs git push -u origin [BRANCH_NAME] after branch creation.`,
+		alias: `u`,
+		type: `boolean`,
+	})
+	.option(`checkout`, {
+		describe: `Decides whether to run git checkout -b [BRANCH_NAME] or git branch [BRANCH_NAME] for branch creation.`,
+		alias: `c`,
+		type: `boolean`,
+		default: undefined,
+	})
+	.parseSync();
+
+module.exports = branchlintConfig({
+	separator,
 	prefix: {
 		type: `input`,
 		name: `name`,
 		message: `What is your name?`,
 		prefix: `👋`,
 		validate: nameValidate,
+		default: prefix || undefined,
 	},
 	middle: {
 		type: `list`,
@@ -41,18 +66,31 @@ export default {
 		message: `Checkout to new branch?`,
 		default: true,
 		prefix: `🍻`,
+		when: typeof checkout !== `boolean`,
 	},
-	command: (
-		branchName: string,
-		answers: Record<PropertyKey, string | boolean>,
-	) => {
-		const { checkout } = answers;
+	transformer: ({answers}) => {
+		// Convert input from the CLI to kebab-case and separate prefix, middle, and suffix by the configured separator.
+		// Don't transform checkout.
+		const {checkout, ...toTransform} = answers;
 
-		return (checkout as boolean)
-			? `git checkout -b ${branchName} && git push -u origin ${branchName}`
-			: `git branch ${branchName}`;
+		return Object.values(toTransform)
+			.map(kebabCase)
+			.join(separator);
 	},
-	successMessage: (branchName: string) =>
+	command: ({
+				  branchName,
+				  answers,
+			  }) => {
+		const {checkout} = answers;
+		const command = (checkout as boolean)
+			? `git checkout -b ${branchName}`
+			: `git branch ${branchName}`;
+
+		return `${command}${
+			setUpstream ? ` && git push -u origin ${branchName}` : ``
+		}`;
+	},
+	successMessage: ({branchName}) =>
 		`🎉 Created a branch named ${branchName}`,
 	errorMessage: () => `💥 Failed to create a branch...`,
-};
+});
