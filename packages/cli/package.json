@@ -35,7 +35,7 @@
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "bin": {
-	"branchlint": "dist/cjs/index.js"
+	"branchlint": "dist/cjs/cli.js"
   },
   "scripts": {
 	"test": "echo \"will add tests soon\"",
@@ -52,8 +52,8 @@
 	"typecheck": "tsc --noEmit"
   },
   "dependencies": {
-	"@branchlint/default-config": "workspace:*",
 	"@branchlint/common": "workspace:*",
+	"@branchlint/default-config": "workspace:*",
 	"inquirer": "8.0.1"
   },
   "devDependencies": {
