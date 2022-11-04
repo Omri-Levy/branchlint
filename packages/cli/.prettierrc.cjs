@@ -1,3 +1,3 @@
 module.exports = {
-	...require(`../config/prettierrc.base`),
+	...require(`../config/prettierrc.base.cjs`),
 }
