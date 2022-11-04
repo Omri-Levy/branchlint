@@ -1,5 +1,11 @@
 # @branchlint/cli
 
+## 1.0.2
+
+### Patch Changes
+
+- fbd0ca1: Fixed transformer not receiving an object as an argument now receives {answers} instead of answers directly
+
 ## 1.0.1
 
 ### Patch Changes
