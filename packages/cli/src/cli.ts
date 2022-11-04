@@ -38,7 +38,7 @@ void (async () => {
 		]);
 
 		// Convert input from the CLI using the config's transformer into the branch name.
-		const branchName = transformer(answers);
+		const branchName = transformer({ answers });
 		const command = config.command({ branchName, answers });
 
 		// Make sure exec receives a string to avoid errors.
