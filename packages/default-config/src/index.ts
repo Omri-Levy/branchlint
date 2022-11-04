@@ -1,11 +1,11 @@
-import {nameValidate, subjectValidate} from './validation';
+import { nameValidate, subjectValidate } from './validation';
 import yargs from 'yargs';
-import {hideBin} from 'yargs/helpers';
-import {kebabCase} from 'lodash';
-import {branchlintConfig} from '@branchlint/common';
+import { hideBin } from 'yargs/helpers';
+import { kebabCase } from 'lodash';
+import { branchlintConfig } from '@branchlint/common';
 
 const separator = `/`;
-const {prefix, setUpstream, checkout} = yargs(hideBin(process.argv))
+const { prefix, setUpstream, checkout } = yargs(hideBin(process.argv))
 	.scriptName(`branchlint`)
 	.option(`prefix`, {
 		describe: `Provides a default prefix for cases where prefix does not change between uses.`,
@@ -68,29 +68,24 @@ module.exports = branchlintConfig({
 		prefix: `🍻`,
 		when: typeof checkout !== `boolean`,
 	},
-	transformer: ({answers}) => {
+	transformer: ({ answers }) => {
 		// Convert input from the CLI to kebab-case and separate prefix, middle, and suffix by the configured separator.
 		// Don't transform checkout.
-		const {checkout, ...toTransform} = answers;
+		const { checkout, ...toTransform } = answers;
 
-		return Object.values(toTransform)
-			.map(kebabCase)
-			.join(separator);
+		return Object.values(toTransform).map(kebabCase).join(separator);
 	},
-	command: ({
-				  branchName,
-				  answers,
-			  }) => {
-		const {checkout} = answers;
-		const command = (checkout as boolean)
-			? `git checkout -b ${branchName}`
-			: `git branch ${branchName}`;
+	command: ({ branchName, answers }) => {
+		const command =
+			checkout ?? answers?.checkout
+				? `git checkout -b ${branchName}`
+				: `git branch ${branchName}`;
 
 		return `${command}${
 			setUpstream ? ` && git push -u origin ${branchName}` : ``
 		}`;
 	},
-	successMessage: ({branchName}) =>
+	successMessage: ({ branchName }) =>
 		`🎉 Created a branch named ${branchName}`,
 	errorMessage: () => `💥 Failed to create a branch...`,
 });
