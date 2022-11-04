@@ -1,5 +1,11 @@
 # @branchlint/cli
 
+## 1.0.1
+
+### Patch Changes
+
+- b4bbeb1: Changed bin to cli.js to avoid execute on import of types or utils
+
 ## 2.0.0
 
 ### Major Changes
