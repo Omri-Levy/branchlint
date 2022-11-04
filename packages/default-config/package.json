@@ -1,65 +1,65 @@
 {
-  "license": "ISC",
-  "private": false,
-  "sideEffects": false,
-  "publishConfig": {
-	"access": "public"
-  },
-  "author": "Omri Levy",
-  "repository": {
-	"type": "git",
-	"url": "https://github.com/Omri-Levy/branchlint"
-  },
-  "types": "./dist/cjs/index.d.ts",
-  "description": "Default config for @branchlint/cli - enforces kebab-case name/type/subject (i.e john-doe/feat/add-branchlint)",
-  "files": [
-	"dist"
-  ],
-  "keywords": [
-	"cli",
-	"default",
-	"config",
-	"configuration",
-	"inquirer",
-	"git",
-	"version control",
-	"branch",
-	"branch naming conventions",
-	"lint",
-	"commitlint",
-	"conventional commits",
-	"oss",
-	"open-source",
-	"enforce",
-	"code guidelines"
-  ],
-  "name": "@branchlint/default-config",
-  "version": "0.0.1",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "scripts": {
-	"test": "echo \"will add tests soon\"",
-	"format": "prettier --write './**/*.{cjs,js,ts}'",
-	"lint": "eslint './**/*.{cjs,js,ts}' --fix",
-	"prestart": "pnpm build",
-	"start": "node dist/cjs/index.js",
-	"dev": "NODE_ENV=development nodemon dist/cjs/index.js",
-	"clean": "rimraf dist",
-	"build:cjs": "tsc --project tsconfig.cjs.json",
-	"build:esm": "tsc --project tsconfig.json",
-	"build": "pnpm clean && pnpm build:cjs && pnpm build:esm",
-	"watch": "tsc --project tsconfig.cjs.json -w",
-	"typecheck": "tsc --noEmit"
-  },
-  "dependencies": {
-	"lodash": "^4.17.21",
-	"yargs": "^17.6.2",
-	"zod": "^3.19.1",
-	"@branchlint/common": "workspace:*"
-  },
-  "devDependencies": {
-	"@types/lodash": "^4.14.186",
-	"@types/node": "^18.11.9",
-	"@types/yargs": "^17.0.13"
-  }
+	"license": "ISC",
+	"private": false,
+	"sideEffects": false,
+	"publishConfig": {
+		"access": "public"
+	},
+	"author": "Omri Levy",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Omri-Levy/branchlint"
+	},
+	"types": "./dist/cjs/index.d.ts",
+	"description": "Default config for @branchlint/cli - enforces kebab-case name/type/subject (i.e john-doe/feat/add-branchlint)",
+	"files": [
+		"dist"
+	],
+	"keywords": [
+		"cli",
+		"default",
+		"config",
+		"configuration",
+		"inquirer",
+		"git",
+		"version control",
+		"branch",
+		"branch naming conventions",
+		"lint",
+		"commitlint",
+		"conventional commits",
+		"oss",
+		"open-source",
+		"enforce",
+		"code guidelines"
+	],
+	"name": "@branchlint/default-config",
+	"version": "1.0.0",
+	"main": "dist/cjs/index.js",
+	"module": "dist/esm/index.js",
+	"scripts": {
+		"test": "echo \"will add tests soon\"",
+		"format": "prettier --write './**/*.{cjs,js,ts}'",
+		"lint": "eslint './**/*.{cjs,js,ts}' --fix",
+		"prestart": "pnpm build",
+		"start": "node dist/cjs/index.js",
+		"dev": "NODE_ENV=development nodemon dist/cjs/index.js",
+		"clean": "rimraf dist",
+		"build:cjs": "tsc --project tsconfig.cjs.json",
+		"build:esm": "tsc --project tsconfig.json",
+		"build": "pnpm clean && pnpm build:cjs && pnpm build:esm",
+		"watch": "tsc --project tsconfig.cjs.json -w",
+		"typecheck": "tsc --noEmit"
+	},
+	"dependencies": {
+		"lodash": "^4.17.21",
+		"yargs": "^17.6.2",
+		"zod": "^3.19.1",
+		"@branchlint/common": "workspace:*"
+	},
+	"devDependencies": {
+		"@types/lodash": "^4.14.186",
+		"@types/node": "^18.11.9",
+		"@types/yargs": "^17.0.13"
+	}
 }
