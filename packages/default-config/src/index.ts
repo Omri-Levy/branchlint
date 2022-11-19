@@ -3,6 +3,7 @@ import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 import { kebabCase } from 'lodash';
 import { branchlintConfig } from '@branchlint/common';
+import { execSync } from 'child_process';
 
 const separator = `/`;
 const { prefix, setUpstream, checkout } = yargs(hideBin(process.argv))
@@ -10,6 +11,10 @@ const { prefix, setUpstream, checkout } = yargs(hideBin(process.argv))
 	.option(`prefix`, {
 		describe: `Provides a default prefix for cases where prefix does not change between uses.`,
 		type: `string`,
+		// Default to the user's git username.
+		default: execSync(`echo $(git config --global user.name)`)
+			.toString()
+			.trim(),
 	})
 	.option(`set-upstream`, {
 		describe: `Runs git push -u origin [BRANCH_NAME] after branch creation.`,
@@ -23,7 +28,6 @@ const { prefix, setUpstream, checkout } = yargs(hideBin(process.argv))
 		default: undefined,
 	})
 	.parseSync();
-
 module.exports = branchlintConfig({
 	separator,
 	prefix: {
