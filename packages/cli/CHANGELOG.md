@@ -1,5 +1,12 @@
 # @branchlint/cli
 
+## 1.0.4
+
+### Patch Changes
+
+- Updated dependencies [51161b9]
+  - @branchlint/default-config@1.0.2
+
 ## 1.0.3
 
 ### Patch Changes

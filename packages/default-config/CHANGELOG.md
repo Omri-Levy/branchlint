@@ -1,5 +1,11 @@
 # @branchlint/default-config
 
+## 1.0.2
+
+### Patch Changes
+
+- 51161b9: added a default prefix of the user's git username
+
 ## 1.0.1
 
 ### Patch Changes
