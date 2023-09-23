@@ -16,4 +16,4 @@ export const kebabCasePreprocess = (
 
 export const nameSchema = kebabCasePreprocess(1, 70, `Name`);
 
-export const subjectSchema = kebabCasePreprocess(1, 24, `Branch subject`);
+export const subjectSchema = kebabCasePreprocess(1, 50, `Branch subject`);
