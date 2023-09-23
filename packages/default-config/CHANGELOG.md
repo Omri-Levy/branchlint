@@ -1,5 +1,11 @@
 # @branchlint/default-config
 
+## 1.0.3
+
+### Patch Changes
+
+- 1a942db: Subject length increased from 24 characters to 50 characters
+
 ## 1.0.2
 
 ### Patch Changes
